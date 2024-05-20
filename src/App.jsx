@@ -83,14 +83,18 @@ function App() {
                                   <h3>{generateStringTvInfo(tv)}</h3>
                                   <h2>{generatePrice(tv)}</h2>
                                   <p>{generateScreenSizeString(tv.availableSizes)}</p>
-{/*                                  <ul className="specs-list">
-                                      <li><img className="icon" src={check} alt=""/>wifi</li>
-                                      <li><img className="icon" src={minus} alt=""/>speech</li>
-                                      <li><img className="icon" src={minus} alt=""/>speech</li>
-                                      <li><img className="icon" src={check} alt=""/>hdr</li>
-                                      <li><img className="icon" src={check} alt=""/>bluetooth</li>
-                                      <li><img className="icon" src={minus} alt=""/>ambilight</li>
-                                  </ul>*/}
+                                  <ul className="specs-list">
+                                      {tv.options.map((option) => {
+                                          if (option.applicable === true) {
+                                              return (
+                                              <li key={tv.type}><img className="icon" src={check} alt=""/>{option.name}</li>
+                                              )} else {
+                                              return (
+                                                  <li key={tv.type}><img className="icon" src={minus} alt=""/>{option.name}</li>)
+                                          }
+                                      })}
+
+                                  </ul>
                               </div>
                           </article>
 
