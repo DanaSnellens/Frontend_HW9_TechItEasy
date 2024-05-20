@@ -1,4 +1,5 @@
 import './App.css';
+import {bestSellingTv, inventory} from "./constants/inventory.js";
 import minus from './assets/minus.png'
 import check from './assets/check.png'
 import calculateSoldTvs from "./helpers/calculateSoldTvs.js";
@@ -7,17 +8,17 @@ import calculateTvsInStock from "./helpers/calculateTvsInStock.js";
 import generateStringTvInfo from "./helpers/generateStringTvInfo.js";
 import generatePrice from "./helpers/generatePrice.js";
 import generateScreenSizeString from "./helpers/generateScreenSize.js";
-import {bestSellingTv, inventory} from "./constants/inventory.js";
+
 import {productTypes} from "./constants/Deel2-Opdr1-Arrays.js";
 function App() {
 
   return (
       <>
-          <main className="outer-container">
+          <main className="main-container">
             <h1>Tech it easy dashboard</h1>
             <section>
               <h2>Verkoopoverzicht</h2>
-              <div className="inner-container">
+              <div className="dashboard-container">
                   <article className="dashboard-item dashboard-sold">
                       <h3>Aantal verkochte producten</h3>
                       <h2>{calculateSoldTvs(inventory)}</h2>
@@ -32,15 +33,13 @@ function App() {
                   </article>
               </div>
             </section>
-            <section className="inner-container">
-
+            <section className="bestseller-container">
+                <h2>Best verkochte tv</h2>
                 <article className="product product-best-seller">
-                    <h2>Best verkochte tv</h2>
-
-                    <div className="product-information">
-                        <div className="product-image">
-                            <img src={bestSellingTv.sourceImg} alt="Afbeelding van het product"/>
-                        </div>
+                    <span className="product-image">
+                        <img src={bestSellingTv.sourceImg} alt="Afbeelding van het product"/>
+                    </span>
+                    <div className="product-info">
                         <h3>{generateStringTvInfo(bestSellingTv)}</h3>
                         <h2>{generatePrice(bestSellingTv)}</h2>
                         <p>{generateScreenSizeString(bestSellingTv.availableSizes)}</p>
@@ -55,15 +54,52 @@ function App() {
                     </div>
                 </article>
             </section>
-              <div>{productTypes}</div>
-{/*
               <section>
-                  <h2>                  </h2>
-                  <button type="button" onClick={}>
-
-                  </button>
+                  <h2>Merkenlijst</h2>
+                  <ul>
+                      {inventory.map((tv) => {
+                          return <li/* key={product.type}*/>{tv.brand}</li>
+                      })}
+                  </ul>
               </section>
-*/}
+              <section>
+                  <h2>Alle tv's</h2>
+                  <button type="button">
+                      Meest verkochte eerst
+                  </button>
+                  <button type="button">
+                      Goedkoopste eerst
+                  </button>
+                  <button type="button" >
+                      Meest geschikt voor sport eerst
+                  </button>
+                  {inventory.map((tv) => {
+                      return (
+                          <article className="product" key={tv.type}>
+                            <span className="product-image">
+                                <img src={tv.sourceImg} alt="Afbeelding van het product"/>
+                            </span>
+                              <div className="product-info">
+                                  <h3>{generateStringTvInfo(tv)}</h3>
+                                  <h2>{generatePrice(tv)}</h2>
+                                  <p>{generateScreenSizeString(tv.availableSizes)}</p>
+{/*                                  <ul className="specs-list">
+                                      <li><img className="icon" src={check} alt=""/>wifi</li>
+                                      <li><img className="icon" src={minus} alt=""/>speech</li>
+                                      <li><img className="icon" src={minus} alt=""/>speech</li>
+                                      <li><img className="icon" src={check} alt=""/>hdr</li>
+                                      <li><img className="icon" src={check} alt=""/>bluetooth</li>
+                                      <li><img className="icon" src={minus} alt=""/>ambilight</li>
+                                  </ul>*/}
+                              </div>
+                          </article>
+
+                      )
+                  })}
+              </section>
+
+
+
 
 
           </main>
