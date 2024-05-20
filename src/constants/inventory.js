@@ -327,5 +327,32 @@ export let inventory = [
         sold: 8,
     },
 ];
+/*
 
 
+const productTypes = inventory.map((product) => {
+    return product.type;
+});
+console.log(productTypes);
+
+
+const soldOutProducts = inventory.filter((product) => {
+    return product.originalStock === product.sold
+});
+console.log(soldOutProducts);
+
+const findSpecificType = inventory.find((product) => {
+    return product.type === 'NH3216SMART'
+})
+console.log(findSpecificType);
+
+const suitableForSports = inventory.map((product) => {
+    if (product.refreshRate >= 100) {
+        return { name: `${product.brand} ${product.name}`, suitable: true }
+    } else {
+        return { name: `${product.brand} ${product.name}`, suitable: false }
+    }
+});
+console.log(suitableForSports);
+
+*/
