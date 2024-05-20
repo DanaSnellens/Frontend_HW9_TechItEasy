@@ -1,11 +1,12 @@
-function calculateTvsSold(inventory) {
+function calculateSoldTvs(products) {
+    console.log(products)
     let tvsSold = 0;
 
-    for (let i = 0; i < inventory.length; i++) {
-        tvsSold = tvsSold + inventory[i].sold;
+    for (let i = 0; i < products.length; i++) {
+        tvsSold = tvsSold + products[i].sold;
     }
 
     return tvsSold;
 }
 
-export default calculateTvsSold;
+export default calculateSoldTvs;

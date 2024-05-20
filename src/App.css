@@ -1,0 +1,68 @@
+.outer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+
+    gap: 30px;
+}
+
+.dashboard-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    border-radius: 5px;
+    padding: 25px;
+    flex-basis: 300px;
+    flex-grow: 0;
+    flex-shrink: 1;
+    height: 180px;
+}
+
+.dashboard-sold {
+    border: 2px solid mediumseagreen;
+    color: mediumseagreen;
+    background-color: hsl(147, 50%, 92%);
+
+}
+
+.dashboard-purchased {
+    border: 2px solid hsl(210, 80%, 56%);
+    color: hsl(210, 80%, 56%);
+    background-color: hsl(210, 100%, 92%);
+
+}
+
+.dashboard-stock {
+    border: 2px solid coral;
+    color: coral;
+    background-color: hsl(16, 100%, 94%);
+
+}
+.product {
+    display: flex;
+}
+
+.product-information {
+    display: flex;
+
+}
+
+.product-best-seller {
+
+}
+
+
+.product-image {
+    max-width: 100px;
+    display: inline-block;
+}
+.icon {
+    width: 15px;
+    padding: 1px;
+}
